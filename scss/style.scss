@@ -1,0 +1,181 @@
+// @josuebasurto
+$c-dark: #E84E43;
+$c-light: white;
+.store{
+  min-width: 280px;
+  height: 160px;
+  background-color: #CD5B5F;
+  border:5px solid #FFF2D8;
+  position: relative;
+  &::after, &::before{
+    content:"";
+    position: absolute;
+  }
+  &::before{
+    width: 110%;
+    height: 10px;
+    background-color: #fff;
+    margin-top: -15px;
+    left:50%;
+    transform:translateX(-50%);
+    box-shadow:0 5px 0 -3px rgba(0,0,0,.2);
+  }
+  &::after{
+    width: 120%;
+    height: 15px;
+    background-color: #A1464B;
+    top:100%;
+    left: 50%;
+    transform:translateX(-50%);
+  }
+}
+.awning{
+  width: calc(100% + 20px);
+  height: 50px;
+  perspective: 300px;
+  position: absolute;
+  top: -20px;
+  margin-left: -10px;
+  z-index: 10;
+  filter:drop-shadow( 0 3px 3px rgba(0,0,0,.2));
+  &::after, &::before{
+    content:"";
+    position: absolute;
+    width: 100%;
+  }
+  &::before{
+    height: 20px;
+    top: 100%;
+    background-image:
+          repeating-linear-gradient(to right, $c-dark, $c-dark 20px,$c-light 20px, $c-light 40px),
+      radial-gradient(20px at 10px 10px, $c-dark 0, $c-dark 10px, transparent 10px, transparent 0),
+       radial-gradient(20px at 30px 10px, $c-light 0, $c-light 10px, transparent 10px, transparent 0);
+    background-repeat: repeat-x;
+    background-size:100% 10px,40px 40px, 40px 40px;
+  }
+  &::after{
+    height: 50px;
+    transform: rotateX(60deg);
+    transform-origin: bottom center;
+    background: repeating-linear-gradient(to right, $c-dark, $c-dark 20px, $c-light 20px,$c-light 40px);
+  }
+}
+
+.window{
+  width: 58%;
+  height: 70%;
+  margin: 20px 0 0 10px;
+  background-color:  #A0D0D7;
+  background-image:
+    linear-gradient(125deg, rgba(255,255,255,0), rgba(255,255,255,0) 30%, rgba(255,255,255,.2) 30%, rgba(255,255,255,.2) 34%, rgba(255,255,255,0) 34%, rgba(255,255,255,0) 36%, rgba(255,255,255,.2) 36%, rgba(255,255,255,.2) 38%, rgba(255,255,255,0) 38%, rgba(255,255,255,0) 70%, rgba(255,255,255,.2) 70%, rgba(255,255,255,.2) 73%,transparent 0)
+    ;
+  position: relative;
+  box-shadow: inset 1px -1px 0 0 rgba(0,0,0,.2);
+  border:2px solid #F6EBD4;
+  &::before,&::after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    background-color: #F6EBD4;
+    box-shadow: 1px 1px 0 0 rgba(0,0,0,.2);
+  }
+  &::before{
+    width: 100%;
+    height: 2px;
+    bottom:50px;
+
+  }
+  &::after{
+    width: 2px;
+    height: 100%;
+    left:33%;
+    box-shadow:
+       1px 0 0 0 rgba(0,0,0,.2),
+       55px 0 0 0 #F6EBD4,
+       56px 0 0 0 rgba(0,0,0,.2);
+  }
+}
+.door{
+  width: 60px;
+  box-sizing:border-box;
+  height: calc(100% - 10px);
+  background-color: #9ED0D7;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  border:6px solid #FFF;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
+  &::before,&::after{
+    content:"";
+    position: absolute;
+  }
+  &::before{
+    width: 100%;
+    height: 10px;
+    background: #fff
+      linear-gradient( to right, rgba(0,0,0,.5), rgba(0,0,0,.5))
+      ;
+    background-size: 30% 50%;
+    background-position: 0 2.5px;
+    background-repeat: no-repeat;
+    top:60%;
+  }
+  &::after{
+    content:"OPEN";
+    top:45%;
+    left: 50%;
+    transform:translateX(-50%);
+    font-size: 7px;
+    background-color: #fff;
+    padding:1px 2px;
+
+  }
+}
+
+.cloud{
+  width: 80px;
+  height: 20px;
+  background: #FFF;
+  border-radius:25% / 100%;
+  position: absolute;
+  left:0px;
+  top:50px;
+  animation: drift 40s linear infinite;
+  filter: drop-shadow(3px 5px 5px rgba(0,0,0,.1));
+  &::before,&::after{
+    content:"";
+    position: absolute;
+    border-radius:100%;
+    background-color: #fff;
+  }
+  &::before{
+    width: 40px;
+    height: 40px;
+    bottom:0px;
+    left:10px;
+  }
+  &::after{
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    bottom: 0px;
+  }
+}
+body{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #A4EEF7;
+}
+
+@keyframes drift{
+  from{
+    transform: translateX(-80px);
+  }
+  to{
+    transform: translateX(100vw);
+  }
+}
